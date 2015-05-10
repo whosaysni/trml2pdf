@@ -20,14 +20,14 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import sys
 import StringIO
-import xml.dom.minidom
 import copy
+import sys
+import xml.dom.minidom
 
 import reportlab
-from reportlab.pdfgen import canvas
 from reportlab import platypus
+from reportlab.pdfgen import canvas
 
 import utils
 import color
@@ -35,7 +35,7 @@ import color
 #
 # Change this to UTF-8 if you plan tu use Reportlab's UTF-8 support
 #
-encoding = 'latin1'
+encoding = 'utf-8' # 'latin1'
 
 def _child_get(node, childs):
     clds = []
