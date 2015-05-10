@@ -19,38 +19,55 @@
 import re
 import reportlab
 
-def text_get(node):
-    rc = ''
-    for node in node.childNodes:
-        if node.nodeType == node.TEXT_NODE:
-            rc = rc + node.data
-    return rc
 
-units = [
+# length units table
+LENGTH_UNITS = [
     (re.compile('^(-?[0-9\.]+)\s*in$'), reportlab.lib.units.inch),
     (re.compile('^(-?[0-9\.]+)\s*cm$'), reportlab.lib.units.cm),  
     (re.compile('^(-?[0-9\.]+)\s*mm$'), reportlab.lib.units.mm),
     (re.compile('^(-?[0-9\.]+)\s*$'), 1)
 ]
 
-def unit_get(size):
-    global units
-    for unit in units:
-        res = unit[0].search(size, 0)
+
+def text_get(node):
+    """Extract text value from TEXT_NODE children for given node.
+    """
+    rc = ''
+    for node in node.childNodes:
+        if node.nodeType == node.TEXT_NODE:
+            rc = rc + node.data
+    return rc
+
+
+def unit_get(size_string):
+    """Converts possibly unit-suffixed string into pt.
+    """
+    for pattern, multiplier in LENGTH_UNITS:
+        res = pattern.search(size_string, 0)
         if res:
-            return unit[1]*float(res.group(1))
+            return multiplier*float(res.group(1))
     return False
 
+
 def tuple_int_get(node, attr_name, default=None):
+    """Converts attribute value of given node/attr_name into a list of integers.
+    """
     if not node.hasAttribute(attr_name):
         return default
+    # XXX 0-prefixed value will be parsed as octal. XXX
     res = [int(x) for x in node.getAttribute(attr_name).split(',')]
     return res
 
+
 def bool_get(value):
+    """Converts text value into bool value.
+    """
     return (str(value)=="1") or (value.lower()=='yes')
 
+
 def attr_get(node, attrs, dict={}):
+    """Correct attribute values for given node/attrs, applying conversion defined in dict.
+    """
     res = {}
     for name in attrs:
         if node.hasAttribute(name):
