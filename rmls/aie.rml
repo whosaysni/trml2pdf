@@ -74,7 +74,7 @@
 </template>
 <stylesheet>
 	<paraStyle name="bigurl" fontName="Courier-Bold" fontSize="12" spaceBefore="0.5cm" textColor="red"/>
-	<paraStyle name="description" fontName="Helvetica-Oblique" fontSize="12" spaceBefore="0.2cm" spaceAfter="0.7" textColor="black" alignment="right"/>
+	<paraStyle name="description" fontName="Helvetica-Oblique" fontSize="12" spaceBefore="0.20cm" spaceAfter="0.21in" textColor="black" alignment="right"/>
 	<paraStyle name="small" fontName="Helvetica" fontSize="8" alignment="justify"/>
 	<paraStyle name="subtitle" fontName="Courier-Bold" fontSize="10" spaceBefore="5mm" spaceAfter="2mm" />
 	<paraStyle name="data" fontName="Helvetica" fontSize="10"/>

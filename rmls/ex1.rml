@@ -3,9 +3,7 @@
 <stylesheet>
 </stylesheet>
 <pageDrawing>
-	 <drawCentredString x="4.1in" y="5.8in">
-		   Hello World.
-	 </drawCentredString>
+  <drawCentredString x="4.31in" y="5.8in">Hello World.</drawCentredString>
 </pageDrawing>
 </document>
 

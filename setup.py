@@ -1,6 +1,7 @@
+# coding: utf-8
 import os
- 
 from distutils.core import setup
+
  
 def fullsplit(path, result=None):
     """
@@ -16,8 +17,10 @@ def fullsplit(path, result=None):
         return result
     return fullsplit(head, [tail] + result)
  
+
 package_dir = "trml2pdf"
  
+
 packages = []
 for dirpath, dirnames, filenames in os.walk(package_dir):
     # ignore dirnames that start with '.'
@@ -27,6 +30,7 @@ for dirpath, dirnames, filenames in os.walk(package_dir):
     if "__init__.py" in filenames:
         packages.append(".".join(fullsplit(dirpath)))
  
+
 setup(
     name = 'trml2pdf',
     version = '0.1',
