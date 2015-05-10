@@ -1,3 +1,4 @@
+# coding: utf-8
 # trml2pdf - An RML to PDF converter
 # Copyright (C) 2003, Fabien Pinckaers, UCL, FSA
 #
